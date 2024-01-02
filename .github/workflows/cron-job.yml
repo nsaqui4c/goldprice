@@ -2,7 +2,8 @@ name: Node.js Cron Job
 
 on:
   schedule:
-    - cron: '*/15 * * * *' # Set your desired cron schedule here
+    - cron: '0 */12 * * *' # First run at midnight UTC (every 12 hours)
+    - cron: '0 12 */1 * *' # Second run at noon UTC (every 12 hours)
 
 jobs:
   run-node-job:
