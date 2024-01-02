@@ -6,15 +6,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ScraperModule = void 0;
+exports.RateDataModule = void 0;
 const common_1 = require("@nestjs/common");
-const scraper_controller_1 = require("./scraper.controller");
-const scraper_service_1 = require("./scraper.service");
 const mongoose_1 = require("@nestjs/mongoose");
-const rateSchema_1 = require("./DB/rateSchema");
-let ScraperModule = class ScraperModule {
+const rateSchema_1 = require("../scraper/DB/rateSchema");
+const rate_data_controller_1 = require("./rate-data.controller");
+const rate_data_service_1 = require("./rate-data.service");
+let RateDataModule = class RateDataModule {
 };
-ScraperModule = __decorate([
+RateDataModule = __decorate([
     (0, common_1.Module)({
         imports: [
             mongoose_1.MongooseModule.forFeature([
@@ -23,9 +23,9 @@ ScraperModule = __decorate([
                 { name: rateSchema_1.Silver.name, schema: rateSchema_1.SilverSchema },
             ]),
         ],
-        controllers: [scraper_controller_1.ScraperController],
-        providers: [scraper_service_1.ScraperService],
+        controllers: [rate_data_controller_1.RateDataController],
+        providers: [rate_data_service_1.RateDataService]
     })
-], ScraperModule);
-exports.ScraperModule = ScraperModule;
-//# sourceMappingURL=scraper.module.js.map
+], RateDataModule);
+exports.RateDataModule = RateDataModule;
+//# sourceMappingURL=rate-data.module.js.map
