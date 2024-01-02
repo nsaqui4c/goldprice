@@ -11,11 +11,14 @@ const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const scraper_module_1 = require("./scraper/scraper.module");
+const mongoose_1 = require("@nestjs/mongoose");
+const dotenv_1 = require("dotenv");
+(0, dotenv_1.config)({ path: './../.env' });
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [scraper_module_1.ScraperModule],
+        imports: [scraper_module_1.ScraperModule, mongoose_1.MongooseModule.forRoot(process.env.DBSTRING)],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

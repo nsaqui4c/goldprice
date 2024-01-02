@@ -10,10 +10,13 @@ exports.ScraperModule = void 0;
 const common_1 = require("@nestjs/common");
 const scraper_controller_1 = require("./scraper.controller");
 const scraper_service_1 = require("./scraper.service");
+const mongoose_1 = require("@nestjs/mongoose");
+const rateSchema_1 = require("./DB/rateSchema");
 let ScraperModule = class ScraperModule {
 };
 ScraperModule = __decorate([
     (0, common_1.Module)({
+        imports: [mongoose_1.MongooseModule.forFeature([{ name: rateSchema_1.Rate24.name, schema: rateSchema_1.Rate24Schema }, { name: rateSchema_1.Rate22.name, schema: rateSchema_1.Rate22Schema }, { name: rateSchema_1.Silver.name, schema: rateSchema_1.SilverSchema }])],
         controllers: [scraper_controller_1.ScraperController],
         providers: [scraper_service_1.ScraperService]
     })
