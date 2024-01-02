@@ -1,0 +1,24 @@
+name: Node.js Cron Job
+
+on:
+  schedule:
+    - cron: '*/15 * * * *' # Set your desired cron schedule here
+
+jobs:
+  run-node-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.5' # Specify your Node.js version
+
+      - name: Install dependencies
+        run: npm install --prefix cron # Replace with yarn install if using Yarn
+
+      - name: Execute Node.js file
+        run: node cron/index.js # Replace with your file path
