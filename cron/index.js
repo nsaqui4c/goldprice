@@ -1,8 +1,9 @@
-import cron from 'node-cron';
+const cron = require('node-cron');
 
 // Function to be executed
 const task = () => {
-  console.log('Running cron job...');
+  const date = new Date()
+  console.log(`Running cron job...${date}`);
   // Your functionality here
 };
 
